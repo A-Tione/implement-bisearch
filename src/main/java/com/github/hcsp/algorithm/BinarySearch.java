@@ -22,11 +22,9 @@ public class BinarySearch {
             if (target.equals(strings[halfIndex])) {
                 return halfIndex;
             } else if (target.compareTo(strings[halfIndex]) < 0) {
-                endIndex = halfIndex - 1;
-                return deepSearchTargetIndex(strings, target, startIndex, endIndex);
+                return deepSearchTargetIndex(strings, target, startIndex, halfIndex - 1);
             } else {
-                startIndex = halfIndex + 1;
-                return deepSearchTargetIndex(strings, target, startIndex, endIndex);
+                return deepSearchTargetIndex(strings, target, halfIndex + 1, endIndex);
             }
         } else return -1;
     }
