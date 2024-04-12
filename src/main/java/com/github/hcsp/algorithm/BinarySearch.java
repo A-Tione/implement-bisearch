@@ -11,7 +11,7 @@ public class BinarySearch {
     // 我们鼓励你使用递归和非递归两种方式
     public static int binarySearch(String[] strings, String target) {
         int startIndex = 0;
-        int endIndex = strings.length -1;
+        int endIndex = strings.length - 1;
 
         return deepSearchTargetIndex(strings, target, startIndex, endIndex);
     }
