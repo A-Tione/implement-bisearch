@@ -10,6 +10,24 @@ public class BinarySearch {
     // 如果未找到，返回-1
     // 我们鼓励你使用递归和非递归两种方式
     public static int binarySearch(String[] strings, String target) {
-        return -1;
+        int startIndex = 0;
+        int endIndex = strings.length -1;
+
+        return deepSearchTargetIndex(strings, target, startIndex, endIndex);
+    }
+
+    private static int deepSearchTargetIndex(String[] strings, String target, int startIndex, int endIndex) {
+        if (startIndex <= endIndex) {
+            int halfIndex = (startIndex + endIndex) / 2;
+            if (target.equals(strings[halfIndex])) {
+                return halfIndex;
+            } else if (target.compareTo(strings[halfIndex]) < 0) {
+                endIndex = halfIndex - 1;
+                return deepSearchTargetIndex(strings, target, startIndex, endIndex);
+            } else {
+                startIndex = halfIndex + 1;
+                return deepSearchTargetIndex(strings, target, startIndex, endIndex);
+            }
+        } else return -1;
     }
 }
